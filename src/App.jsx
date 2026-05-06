@@ -557,7 +557,7 @@ function CoachModule(){
     setMessages(newMsgs); setLoading(true);
     try{
       const res=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
-        model:"claude-sonnet-4-20250514",max_tokens:1000,
+        model:"claude-sonnet-4-5-20250929",max_tokens:1000,
         system:`You are the TASS Early Years and Childcare Coach — a direct, expert careers coach helping young people (16–29) in Scotland secure Early Learning and Childcare Modern Apprenticeships.
 
 Your approach:
@@ -582,9 +582,9 @@ Keep responses focused and mobile-friendly.`,
         messages:newMsgs.map(m=>({role:m.role,content:m.content}))
       })});
       const data=await res.json();
-      const reply=data.content?.[0]?.text||"Connection issue — please try again.";
+      const reply=data.content?.[0]?.text||`Error: ${error.message || "Connection issue — please try again."}`;
       setMessages([...newMsgs,{role:"assistant",content:reply}]);
-    }catch{setMessages([...newMsgs,{role:"assistant",content:"Connection issue — please try again."}]);}
+    }catch{setMessages([...newMsgs,{role:"assistant",content:`Error: ${error.message || "Connection issue — please try again."}`}]);}
     setLoading(false);
   }
 
