@@ -180,47 +180,76 @@ function SectorModule(){
 // ─── PATHWAYS ─────────────────────────────────────────────────────────────────
 function PathwaysModule(){
   const paths=[
-    {role:"Modern Apprentice (ELC)",level:"SVQ Level 6",timeframe:"Age 16–18",salary:"£18,000–£22,000",note:"Employed from day one. College day release. SSSC registration as student practitioner."},
-    {role:"Qualified Practitioner",level:"SVQ Level 6/7",timeframe:"Age 18–22",salary:"£23,000–£28,000",note:"Council settings typically pay more than private. Registered with SSSC as Practitioner."},
-    {role:"Senior Practitioner / Room Leader",level:"SVQ Level 9",timeframe:"Mid 20s",salary:"£28,000–£33,000",note:"Often requires additional HNC or degree-level study. Leadership and key worker responsibilities."},
-    {role:"Nursery Manager / Deputy",level:"SVQ Level 9–11",timeframe:"Late 20s+",salary:"£33,000–£42,000",note:"Full management responsibility. Council NM roles often on SJC pay scale band 7–8."},
-    {role:"ASN / Additional Support Needs Specialist",level:"Additional training",timeframe:"Varies",salary:"£28,000–£38,000",note:"Works with children with autism, dyslexia, physical disabilities. Requires SEN certification."},
-    {role:"Primary Teaching (PGDE route)",level:"PGDE + GTC Scotland",timeframe:"3–5 years from qualification",salary:"£33,000–£47,000",note:"Scotland's teacher pay scale (GTCS). Requires degree + PGDE. Strong pathway from ELC."},
-    {role:"Social Work / Family Support",level:"Degree required",timeframe:"5+ years from apprenticeship",salary:"£31,000–£44,000",note:"Requires CQSW or relevant degree. Early years experience is a strong foundation."},
-    {role:"Private Nanny (UK)",level:"Practitioner qualification",timeframe:"Post-qualification",salary:"£30,000–£55,000",note:"Top London nanny salaries can exceed £55K. Scotland-based nannies typically £28,000–£40,000. SEN or bilingual nannies command a premium."},
+    {id:"ma",icon:"⭐",role:"ELC Modern Apprenticeship",level:"SVQ Level 6",timeframe:"Age 16+ · 2 years",salary:"£18,000–£22,000",
+     entry:"No formal academic requirements. A genuine passion for working with young children is essential. You must be willing to register with the SSSC as a Student Practitioner and complete a PVG Disclosure Scotland check before starting.",
+     desc:"The starting point for most ELC careers in Scotland. You are employed from day one by a nursery, council or private provider. One day per week at college for your HNC Early Education and Childcare. The rest of the week you are working directly with children aged 0–5 in a real setting.",
+     employers:"All 32 Scottish councils, NHS nurseries, private providers (Bright Horizons, Cala Mara, Smiley Faces), third sector organisations (Barnardo's, Action for Children)",
+     day:["7:30 — Arrive early. Check the room is set up safely. Review any notes from the previous session about individual children.","8:00 — Welcome children and families. Greet by name, note any handover information from parents.","9:00 — Child-led play session. Observe and support — document observations for your learning journals.","11:00 — Snack time. Support children to self-serve, build independence, practise social skills.","12:00 — Lunch and outdoor play. Supervise, engage, support gross motor development.","14:00 — Rest/quiet time for younger children. Planning time or one-to-one key worker activities.","15:30 — Afternoon session. Creative activities, story time, preparing for home.","16:00 — Handover to parents. Share observations, any concerns, positive moments."],
+     routes:"Once qualified at SVQ Level 6, you can progress to Senior Practitioner, Room Leader or apply for a Graduate Apprenticeship in Childhood Practice (SCQF Level 9) without leaving employment."},
+    {id:"senior",icon:"👩‍🏫",role:"Senior Practitioner / Room Leader",level:"SVQ Level 7 / HNC",timeframe:"Typically age 20–28",salary:"£23,000–£30,000",
+     entry:"Requires SVQ Level 6 or HNC Early Education and Childcare. SSSC registration as Practitioner. Experience in a key worker role. Some employers also require a First Aid certificate.",
+     desc:"Senior practitioners take on additional responsibilities — leading a room team, mentoring junior staff and apprentices, completing more complex developmental observations and liaising with external agencies. This is where your practice deepens significantly.",
+     employers:"All 32 Scottish councils, NHS nurseries, private nursery chains, third sector organisations",
+     day:["8:00 — Room leader briefing. Brief your team on the day, any children with specific needs, student/apprentice supervision responsibilities.","9:00 — Lead morning session. Model best practice for apprentices observing you.","10:30 — Planning and documentation. Complete SHANARRI-based observations for your key children.","12:00 — Lunchtime leadership. Manage the room team, ensure routines are consistent.","14:00 — Key worker meeting or parent consultation. Discuss individual child progress.","15:00 — Staff supervision of apprentice — give structured feedback on their practice.","16:00 — Room audit, safety check, handover notes for the next session."],
+     routes:"From Senior Practitioner you can move into Deputy Manager or Nursery Manager roles, or progress to a Graduate Apprenticeship in Childhood Practice (SCQF Level 9) or a BA Childhood Practice via distance learning."},
+    {id:"manager",icon:"🏫",role:"Nursery Manager / Deputy",level:"SCQF Level 9–11",timeframe:"Typically age 28+",salary:"£30,000–£45,000",
+     entry:"Typically requires HNC plus SVQ Level 7, or a BA/Graduate Apprenticeship in Childhood Practice. SSSC registration as a Manager. Significant experience in a senior practitioner or deputy role. Some councils require a leadership qualification.",
+     desc:"Nursery managers hold full responsibility for the setting — staff management, Care Inspectorate inspections, budget, parent relationships, safeguarding leadership and strategic planning. Council nursery manager roles are on SJC pay scale band 7–8 and include excellent pension and leave.",
+     employers:"All 32 Scottish councils (most competitive and best paid), NHS nurseries, private nursery chains (area manager progression), third sector organisations",
+     day:["8:00 — Senior leadership walk-round. Check all rooms are staffed, safe and ready.","9:00 — Staff supervision or recruitment activity.","10:00 — Parent meeting or multi-agency meeting (with social work, speech therapy, health visitor).","11:00 — Care Inspectorate preparation, quality improvement planning or staff training coordination.","13:00 — Budget review, procurement, staffing rota management.","14:00 — SSSC registration renewals, training records, safeguarding updates for the team.","16:00 — End of day review with deputy. Prepare for the following day."],
+     routes:"Experienced nursery managers can move into area manager roles (private sector), ELC development officer or quality improvement officer roles (councils and Scottish Government), or policy and sector development work."},
+    {id:"asn",icon:"💙",role:"ASN / Additional Support Needs Practitioner",level:"Additional certification",timeframe:"Post-SVQ Level 6",salary:"£25,000–£38,000",
+     entry:"SVQ Level 6 is the foundation. Additional training in autism (ADOS, PDA), dyslexia, physical disabilities, or Makaton/BSL is required depending on the role. Some posts require a specific ASN qualification or experience working with a named condition.",
+     desc:"ASN practitioners work specifically with children who have additional support needs — autism spectrum conditions, physical disabilities, developmental delays, sensory impairment, speech and language difficulties. This is one of the most skilled and most rewarding roles in early years. Strong demand across all 32 Scottish councils.",
+     employers:"All 32 Scottish councils (mainstream and specialist settings), NHS Children's Services, specialist providers (Enable Scotland, Sense Scotland, National Autistic Society Scotland)",
+     day:["8:30 — Review individual support plans for each child on your caseload.","9:00 — One-to-one or small group work with ASN children — play-based therapeutic approaches.","10:30 — Collaborative planning with class teacher, SENCO or early years coordinator.","12:00 — Mealtime support — eating and drinking skills, sensory sensitivities, communication support.","13:00 — Documentation — update EHCP or additional support plans, record observations.","14:30 — Parent update or multi-agency meeting with health visitor, speech therapist, OT.","15:30 — Resource preparation for tomorrow's individual programme."],
+     routes:"ASN practitioners can progress to Lead ASN Practitioner, SENCO, Early Intervention Officer or with further study into Educational Psychology or Speech and Language Therapy."},
+    {id:"nanny",icon:"🏠",role:"Nanny / Private Childcarer",level:"Practitioner qualification",timeframe:"Post-qualification",salary:"£28,000–£55,000+",
+     entry:"SVQ Level 6 or HNC Early Education and Childcare is typically expected. Enhanced Disclosure Scotland (PVG) essential. First Aid certificate required by most families. Paediatric first aid preferred. Nanny insurance advisable.",
+     desc:"Working as a private nanny in Scotland or the UK offers excellent salaries, a high degree of autonomy and often unique experiences including travel. Top nanny roles in London can exceed £55,000. Scotland-based nannies typically earn £28,000–£40,000. SEN-qualified nannies and bilingual nannies command a significant premium.",
+     employers:"Private families via agencies (Koru Kids, Tinies, Nannies of Edinburgh), direct hire, au pair agencies for international travel roles",
+     day:["Varies entirely by family — each nanny role is unique","Typically: school or nursery run, activity planning, meal preparation, homework support","May include: travel with family, sole charge of multiple children, managing household routines","Contracts vary: live-in (accommodation and meals included) or live-out","Key skills: independence, initiative, excellent communication with parents, professional boundaries"],
+     routes:"Experienced nannies can move into nanny management (agency side), childcare consultancy, parenting support, or return to the sector as a practitioner with significantly enhanced experience and salary negotiating power."},
   ];
-  const [active,setActive]=useState(0);
-  const p=paths[active];
+  const [active,setActive]=useState("ma");
+  const p=paths.find(x=>x.id===active)||paths[0];
   return (
     <div>
       <PageHeader icon="📋" title="Career Pathways" subtitle="Where an ELC Modern Apprenticeship can take you — from day one to senior leadership and beyond."/>
       <InfoBox text="Scotland's 1140 hours ELC expansion has created sustained demand for qualified practitioners across all 32 councils. Job security in this sector is strong and improving." type="success"/>
-      <NavTabBar options={paths.map((p,i)=>({id:i,label:p.role.split(" ")[0]+(p.role.split(" ")[1]?" "+p.role.split(" ")[1]:"")})).map((o,i)=>({id:i,label:i===0?"MA":i===1?"Practitioner":i===2?"Senior":i===3?"Manager":i===4?"ASN":i===5?"Teaching":i===6?"Social Work":"Nanny"}))} active={active} onSelect={setActive}/>
+      <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:14}}>
+        {paths.map(pw=>(
+          <button key={pw.id} onClick={()=>setActive(pw.id)} style={{background:active===pw.id?NAVY:WHITE,color:active===pw.id?WHITE:MID,border:`1px solid ${active===pw.id?NAVY:"#E2E8F0"}`,borderRadius:20,padding:"6px 10px",fontSize:10,fontWeight:active===pw.id?800:400,cursor:"pointer",fontFamily:"inherit",textTransform:"uppercase"}}>
+            {pw.icon} {pw.role.split(" ")[0]}
+          </button>
+        ))}
+      </div>
       <Card>
-        <p style={{color:ROSE,fontWeight:800,fontSize:15,margin:"0 0 10px",textTransform:"uppercase",letterSpacing:0.5}}>{p.role}</p>
-        {[["SCQF Level",p.level],["Typical timeframe",p.timeframe],["Salary range",p.salary],["Key notes",p.note]].map(([label,val],i)=>(
-          <div key={i} style={{display:"flex",gap:12,padding:"9px 0",borderBottom:i<3?"1px solid #F0F4F8":"none"}}>
-            <span style={{color:MID,fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:0.5,minWidth:110,flexShrink:0}}>{label}</span>
+        <p style={{color:ROSE,fontWeight:800,fontSize:15,margin:"0 0 4px"}}>{p.icon} {p.role}</p>
+        <p style={{color:MID,fontSize:12,margin:"0 0 12px"}}>{p.level} · {p.timeframe} · {p.salary}</p>
+        <p style={{color:"#444",fontSize:13,lineHeight:1.65,margin:"0 0 14px"}}>{p.desc}</p>
+        {[["Entry requirements",p.entry],["Key employers",p.employers]].map(([label,val],i)=>(
+          <div key={i} style={{display:"flex",gap:12,padding:"9px 0",borderBottom:"1px solid #F0F4F8"}}>
+            <span style={{color:MID,fontSize:11,fontWeight:700,textTransform:"uppercase",minWidth:110,flexShrink:0}}>{label}</span>
             <span style={{color:NAVY,fontSize:13,lineHeight:1.5}}>{val}</span>
           </div>
         ))}
-      </Card>
-      <Card>
-        <p style={{color:TEAL,fontWeight:700,fontSize:12,margin:"0 0 10px",textTransform:"uppercase",letterSpacing:0.5}}>International and specialist routes</p>
-        {[
-          {icon:"🌍",title:"Au pair and overseas childcare",desc:"UK ELC qualifications are recognised internationally. Australia, USA, Canada and EU countries all welcome qualified childcare workers. Average UK au pair pay is £10–12/hr with accommodation and meals included. A useful route for qualified practitioners who want to travel."},
-          {icon:"🎯",title:"Graduate Apprenticeship (SCQF Level 9–11)",desc:"Scotland offers Graduate Apprenticeships allowing you to gain a degree-level qualification while working full-time. An ELC practitioner can progress to a BA in Childhood Practice via GA without leaving employment or taking on student debt."},
-          {icon:"🏥",title:"Child development and psychology",desc:"With additional study (BSc Psychology, MSc Child Development), practitioners can move into clinical or educational psychology, speech and language support, or therapeutic play work — all of which command significantly higher salaries."},
-        ].map((item,i)=>(
-          <div key={i} style={{display:"flex",gap:12,marginBottom:12,alignItems:"flex-start",paddingBottom:12,borderBottom:i<2?"1px solid #F0F4F8":"none"}}>
-            <span style={{fontSize:20,flexShrink:0}}>{item.icon}</span>
-            <div><p style={{color:NAVY,fontWeight:700,fontSize:13,margin:"0 0 3px"}}>{item.title}</p><p style={{color:"#555",fontSize:13,lineHeight:1.6,margin:0}}>{item.desc}</p></div>
+        <p style={{color:TEAL,fontSize:11,fontWeight:700,textTransform:"uppercase",margin:"12px 0 8px"}}>Day in the life</p>
+        {p.day.map((item,i)=>(
+          <div key={i} style={{display:"flex",gap:10,marginBottom:7,alignItems:"flex-start"}}>
+            <div style={{width:5,height:5,background:ROSE,borderRadius:99,flexShrink:0,marginTop:5}}/>
+            <p style={{color:"#444",fontSize:13,lineHeight:1.55,margin:0}}>{item}</p>
           </div>
         ))}
+        <div style={{background:"#EFF6FF",borderLeft:`3px solid ${TEAL}`,borderRadius:8,padding:"9px 12px",marginTop:12}}>
+          <p style={{color:TEAL,fontWeight:700,fontSize:11,textTransform:"uppercase",margin:"0 0 3px"}}>Progression route</p>
+          <p style={{color:"#1A5276",fontSize:13,lineHeight:1.6,margin:0}}>{p.routes}</p>
+        </div>
       </Card>
     </div>
   );
 }
+
 
 // ─── APPLY ────────────────────────────────────────────────────────────────────
 function ApplyModule(){
@@ -548,7 +577,7 @@ function CoachModule(){
   const bottomRef=useRef(null);
   useEffect(()=>{bottomRef.current?.scrollIntoView({behavior:"smooth"});},[messages]);
 
-  const PROMPTS=["Run a mock ELC interview — ask me real questions","Give feedback on my personal profile","Help me build a STAR answer about safeguarding","What should I know about PVG and SSSC before interview?","How do I write a supporting statement for a council nursery role?","What is the key worker system?"];
+  const PROMPTS=["I have an interview at a council nursery next week — help me prepare","Can you check my CV personal profile?","I want to build a STAR answer about a time I noticed a child was upset","What is the PVG scheme and will I need one?","I am writing a supporting statement for MyJobScotland — can you help?","What is the key worker system and how do I explain it at interview?"];
 
   async function send(){
     if(!input.trim()||loading)return;
@@ -582,9 +611,9 @@ Keep responses focused and mobile-friendly.`,
         messages:newMsgs.map(m=>({role:m.role,content:m.content}))
       })});
       const data=await res.json();
-      const reply=data.content?.[0]?.text||`Error: ${error.message || "Connection issue — please try again."}`;
+      const reply=data.content?.[0]?.text||"Connection issue — please try again.";
       setMessages([...newMsgs,{role:"assistant",content:reply}]);
-    }catch{setMessages([...newMsgs,{role:"assistant",content:`Error: ${error.message || "Connection issue — please try again."}`}]);}
+    }catch{setMessages([...newMsgs,{role:"assistant",content:"Connection issue — please try again."}]);}
     setLoading(false);
   }
 
